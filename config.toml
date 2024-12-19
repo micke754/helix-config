@@ -3,6 +3,14 @@ theme = "base16_transparent"
 [editor]
 scrolloff = 15
 auto-format = true
+true-color = true
+gutters = ["diagnostics", "spacer", "diff"]
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'`' = '`'
 
 [editor.cursor-shape]
 insert = "bar"
@@ -22,10 +30,16 @@ O = ["open_above", "normal_mode"]
 "}" = ["goto_next_paragraph", "collapse_selection"]
 G = "goto_file_end"
 V = ["select_mode", "extend_to_line_bounds"]
-"C-b" = [ ] # Unbinds Ctrl-b in normal mode
+"C-b" = []                                          # Unbinds Ctrl-b in normal mode
+"C-n" = ["move_line_down", "move_visual_line_down"]
+"C-p" = ["move_line_up", "move_visual_line_up"]
+
 
 [keys.insert.j]
 "j" = ["normal_mode"]
+
+[keys.insert]
+"C-y" = ["completion"]
 
 [editor.lsp]
 enable = true

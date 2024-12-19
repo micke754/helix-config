@@ -6,11 +6,26 @@ args = ["--stdio"]
 [language-server.vale-ls]
 command = "vale-ls"
 
+[language-server.pylsp.config.pylsp]
+plugins.pylsp_mypy.enabled = true
+plugins.pylsp_mypy.live_mode = true
+
+[language-server.jedi]
+command = "jedi-language-server"
+args = ["--tcp"]
+
 [language-server.basedpyright]
 command = "basedpyright-langserver"
 args = ["--stdio"]
 
-[language-server.basedpyright.config.python.analysis]
+# [language-server.basedpyright.config.python.analysis]
+# typeCheckingMode = "basic"
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+
+[language-server.pyright.config.python.analysis]
 typeCheckingMode = "basic"
 
 # if you choose `ruff` itself
@@ -18,8 +33,9 @@ typeCheckingMode = "basic"
 command = "ruff"
 args = ["server"]
 
-[language-server.gpt]
-command = "helix-gpt --handler=codeium"
+[language-server.pylyzer]
+command = "pylyzer"
+args = ["--server"]
 
 # Language Config
 
@@ -30,7 +46,7 @@ auto-format = true
 
 [[language]]
 name = "python"
-language-servers = ["basedpyright", "ruff", "vale-ls", "gpt"]
+language-servers = ["basedpyright", "ruff"]
 formatter = { command = "ruff", args = ["format", "--line-length", "80", "-"] }
 auto-format = true
 
@@ -50,4 +66,17 @@ language-servers = ["yaml-language-server", "ansible-language-server"]
 
 [[language]]
 name = "markdown"
-language-servers = ["harper-ls", "vale-ls", "lsp-ai"]
+language-servers = ["gpt", "vale-ls"]
+file-types = ["txt", "md"]
+
+[[language]]
+name = "nix"
+formatter = { command = "nixpkgs-fmt" }
+
+[[language]]
+name = "nu"
+formatter = { command = "nufmt", args = ["--stdin-filename", "$FILENAME", "-"] }
+
+[[grammar]]
+name = "r"
+source = { git = "https://github.com/r-lib/tree-sitter-r", rev = "main" }
