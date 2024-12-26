@@ -26,7 +26,7 @@ auto-format = true
 
 [[language]]
 name = "python"
-language-servers = ["basedpyright", "ruff", "vale-ls", "gpt"]
+language-servers = ["pyright", "ruff", "pylyzer"]
 formatter = { command = "ruff", args = ["format", "--line-length", "80", "-"] }
 auto-format = true
 
@@ -46,4 +46,9 @@ language-servers = ["yaml-language-server", "ansible-language-server"]
 
 [[language]]
 name = "markdown"
-language-servers = ["harper-ls", "vale-ls", "lsp-ai"]
+language-servers = ["harper-ls", "vale-ls"]
+
+[[language]]
+name = "lua"
+formatter = { command = "stylua", args = ["-"] }
+auto-format = true

@@ -12,6 +12,24 @@ select = "underline"
 [editor.soft-wrap]
 enable = true
 
+[editor.auto-save]
+focus-lost = true
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "spacer"]
+
+[editor.lsp]
+enable = true
+display-messages = false
+auto-signature-help = true
+display-inlay-hints = true
+display-signature-help-docs = true
+snippets = true
+goto-reference-include-declaration = true
+
+[editor.smart-tab]
+enable = false
+
 [keys.normal]
 # Personal preference
 o = ["open_below", "normal_mode"]
@@ -22,15 +40,14 @@ O = ["open_above", "normal_mode"]
 "}" = ["goto_next_paragraph", "collapse_selection"]
 G = "goto_file_end"
 V = ["select_mode", "extend_to_line_bounds"]
-"C-b" = [ ] # Unbinds Ctrl-b in normal mode
+"C-b" = []                                          # Unbinds Ctrl-b in normal mode
+"C-y" = ["completion"]
 
 [keys.insert.j]
 "j" = ["normal_mode"]
 
-[editor.lsp]
-enable = true
-display-messages = true
-display-inlay-hints = true
-display-signature-help-docs = true
-snippets = true
-goto-reference-include-declaration = true
+[keys.normal.space]
+"t" = [
+  "yank_to_clipboard",
+  ":sh tmux paste-buffer -t right; tmux send-keys -t right Enter",
+]
