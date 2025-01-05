@@ -6,8 +6,8 @@ args = ["--stdio"]
 [language-server.vale-ls]
 command = "vale-ls"
 
-[language-server.basedpyright.config.python.analysis]
-typeCheckingMode = "basic"
+# [language-server.basedpyright.config.python.analysis]
+# typeCheckingMode = "basic"
 
 # if you choose `ruff` itself
 [language-server.ruff]
@@ -26,7 +26,7 @@ auto-format = true
 
 [[language]]
 name = "python"
-language-servers = ["pyright", "ruff", "pylyzer"]
+language-servers = ["basedpyright", "ruff"]
 formatter = { command = "ruff", args = ["format", "--line-length", "80", "-"] }
 auto-format = true
 
@@ -51,4 +51,25 @@ language-servers = ["harper-ls", "vale-ls"]
 [[language]]
 name = "lua"
 formatter = { command = "stylua", args = ["-"] }
+auto-format = true
+
+[[language]]
+name = "bash"
+indent = { tab-width = 4, unit = "    " }
+formatter = { command = 'shfmt', args = ["-i", "4"] }
+auto-format = true
+
+[[language]]
+name = "html"
+formatter = { command = 'prettierd', args = [".html"] }
+auto-format = true
+
+[[language]]
+name = "css"
+formatter = { command = 'prettierd', args = [".css"] }
+auto-format = true
+
+[[language]]
+name = "scss"
+formatter = { command = 'prettierd', args = [".scss"] }
 auto-format = true
