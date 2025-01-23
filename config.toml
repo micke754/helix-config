@@ -1,4 +1,4 @@
-theme = "base16_transparent"
+theme = "catppuccin_mocha"
 
 [editor]
 scrolloff = 15
@@ -27,6 +27,10 @@ display-signature-help-docs = false
 snippets = true
 goto-reference-include-declaration = true
 
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "error"
+
 [editor.smart-tab]
 enable = false
 
@@ -41,13 +45,24 @@ O = ["open_above", "normal_mode"]
 G = "goto_file_end"
 V = ["select_mode", "extend_to_line_bounds"]
 "C-b" = []                                          # Unbinds Ctrl-b in normal mode
+
+[keys.insert]
 "C-y" = ["completion"]
 
 [keys.insert.j]
 "j" = ["normal_mode"]
 
+# [keys.normal.space]
+# "t" = [
+#   "yank_to_clipboard",
+#   ":sh tmux paste-buffer -t right; tmux send-keys -t right Enter",
+# ]
+
 [keys.normal.space]
-"t" = [
-  "yank_to_clipboard",
-  ":sh tmux paste-buffer -t right; tmux send-keys -t right Enter",
-]
+"t" = ["yank_to_clipboard", ":sh send-to-pane-zellij"]
+
+[keys.normal.space.w]
+"w" = [":write"]
+
+[keys.normal.space.q]
+"q" = [":quit-all"]
