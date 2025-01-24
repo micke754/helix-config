@@ -6,8 +6,19 @@ args = ["--stdio"]
 [language-server.vale-ls]
 command = "vale-ls"
 
+[language-server.basedpyright]
+command = "basedpyright-langserver"
+args = ["--stdio"]
+
 # [language-server.basedpyright.config.python.analysis]
 # typeCheckingMode = "basic"
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
 
 # if you choose `ruff` itself
 [language-server.ruff]
@@ -77,3 +88,17 @@ auto-format = true
 name = "scss"
 formatter = { command = 'prettierd', args = [".scss"] }
 auto-format = true
+language-servers = ["gpt", "vale-ls"]
+file-types = ["txt", "md"]
+
+[[language]]
+name = "nix"
+formatter = { command = "nixpkgs-fmt" }
+
+[[language]]
+name = "nu"
+formatter = { command = "nufmt", args = ["--stdin-filename", "$FILENAME", "-"] }
+
+[[grammar]]
+name = "r"
+source = { git = "https://github.com/r-lib/tree-sitter-r", rev = "main" }

@@ -15,9 +15,6 @@ enable = true
 [editor.auto-save]
 focus-lost = true
 
-[editor.gutters]
-layout = ["diff", "diagnostics", "spacer"]
-
 [editor.lsp]
 enable = true
 display-messages = false
@@ -48,6 +45,9 @@ V = ["select_mode", "extend_to_line_bounds"]
 
 [keys.insert]
 "C-y" = ["completion"]
+"C-n" = ["move_line_down", "move_visual_line_down"]
+"C-p" = ["move_line_up", "move_visual_line_up"]
+
 
 [keys.insert.j]
 "j" = ["normal_mode"]
