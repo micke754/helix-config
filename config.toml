@@ -1,8 +1,8 @@
 theme = "catppuccin_mocha"
-
 [editor]
 scrolloff = 15
 auto-format = true
+continue-comments = false
 
 [editor.cursor-shape]
 insert = "bar"
@@ -33,15 +33,15 @@ enable = false
 
 [keys.normal]
 # Personal preference
-o = ["open_below", "normal_mode"]
-O = ["open_above", "normal_mode"]
+# o = ["open_below", "normal_mode"]
+# O = ["open_above", "normal_mode"]
 
 # Muscle memory
-"{" = ["goto_prev_paragraph", "collapse_selection"]
-"}" = ["goto_next_paragraph", "collapse_selection"]
+# "{" = ["goto_prev_paragraph", "collapse_selection"]
+# "}" = ["goto_next_paragraph", "collapse_selection"]
 G = "goto_file_end"
 V = ["select_mode", "extend_to_line_bounds"]
-"C-b" = []                                          # Unbinds Ctrl-b in normal mode
+"C-b" = []                                   # Unbinds Ctrl-b in normal mode
 
 [keys.insert]
 "C-y" = ["completion"]
