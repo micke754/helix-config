@@ -36,17 +36,16 @@ enable = false
 # o = ["open_below", "normal_mode"]
 # O = ["open_above", "normal_mode"]
 
-# Muscle memory
-# "{" = ["goto_prev_paragraph", "collapse_selection"]
-# "}" = ["goto_next_paragraph", "collapse_selection"]
 G = "goto_file_end"
 V = ["select_mode", "extend_to_line_bounds"]
 "C-b" = []                                   # Unbinds Ctrl-b in normal mode
+"C-n" = ["move_line_down"]
+"C-p" = ["move_line_up"]
 
 [keys.insert]
 "C-y" = ["completion"]
-"C-n" = ["move_line_down", "move_visual_line_down"]
-"C-p" = ["move_line_up", "move_visual_line_up"]
+"C-n" = ["move_line_down"]
+"C-p" = ["move_line_up"]
 
 
 [keys.insert.j]
@@ -59,7 +58,7 @@ V = ["select_mode", "extend_to_line_bounds"]
 # ]
 
 [keys.normal.space]
-"t" = ["yank_to_clipboard", ":sh send-to-pane-zellij"]
+"t" = ["yank_to_clipboard", ":sh send-to-zellij"]
 
 [keys.normal.space.w]
 "w" = [":write"]
