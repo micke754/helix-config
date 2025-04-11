@@ -1,15 +1,6 @@
 # LSP Server Config
-[[language]]
-name = "c"
-file-types = ["c", "h"]
-formatter = { command = 'clang-format' }
-auto-format = true
-
-[[language]]
-name = "cpp"
-file-types = ["cpp", "cc", "cxx", "hpp", "hcc", "hxx"]
-formatter = { command = 'clang-format' }
-auto-format = true
+[language-server.ccls-ls]
+command = "ccls"
 
 [language-server.harper-ls]
 command = "harper-ls"
@@ -45,6 +36,20 @@ command = "pylyzer"
 args = ["--server"]
 
 # Language Config
+[[language]]
+name = "c"
+language-servers = ["ccls-ls"]
+file-types = ["c", "h"]
+formatter = { command = 'clang-format' }
+auto-format = true
+
+[[language]]
+name = "cpp"
+language-servers = ["ccls-ls"]
+file-types = ["cpp", "cc", "cxx", "hpp", "hcc", "hxx"]
+formatter = { command = 'clang-format' }
+auto-format = true
+
 [[language]]
 name = "toml"
 formatter = { command = "taplo", args = ["fmt", "-"] }
