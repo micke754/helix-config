@@ -3,6 +3,9 @@
 command = "harper-ls"
 args = ["--stdio"]
 
+[language-server.markdown-oxide]
+command = "markdown-oxide"
+
 [language-server.vale-ls]
 command = "vale-ls"
 
@@ -35,6 +38,16 @@ command = "helix-gpt --handler=codeium"
 # Language Config
 
 [[language]]
+name = "csv"
+file-types = ["csv"]
+scope = "source.csv"
+
+[[grammar]]
+name = "csv"
+source.git = "https://github.com/weartist/rainbow-csv-tree-sitter"
+source.rev = "896e6d09b23a1b0d87e45bf97ca34a249f41495c"
+
+[[language]]
 name = "toml"
 formatter = { command = "taplo", args = ["fmt", "-"] }
 auto-format = true
@@ -61,7 +74,8 @@ language-servers = ["yaml-language-server", "ansible-language-server"]
 
 [[language]]
 name = "markdown"
-language-servers = ["harper-ls", "vale-ls"]
+file-types = ["txt", "md"]
+language-servers = ["harper-ls", "vale-ls", "markdown-oxide"]
 
 [[language]]
 name = "lua"
@@ -84,12 +98,12 @@ name = "css"
 formatter = { command = 'prettierd', args = [".css"] }
 auto-format = true
 
-[[language]]
-name = "scss"
-formatter = { command = 'prettierd', args = [".scss"] }
-auto-format = true
-language-servers = ["gpt", "vale-ls"]
-file-types = ["txt", "md"]
+# [[language]]
+# name = "scss"
+# formatter = { command = 'prettierd', args = [".scss"] }
+# auto-format = true
+# language-servers = ["gpt", "vale-ls"]
+# file-types = ["txt", "md"]
 
 [[language]]
 name = "nix"

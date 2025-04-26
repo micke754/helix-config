@@ -1,4 +1,6 @@
-theme = "catppuccin_mocha"
+# theme = "base16_transparent"
+theme = "peachpuff"
+
 [editor]
 scrolloff = 15
 auto-format = true
@@ -32,6 +34,7 @@ other-lines = "error"
 enable = false
 
 [keys.normal]
+
 # Personal preference
 # o = ["open_below", "normal_mode"]
 # O = ["open_above", "normal_mode"]
@@ -39,9 +42,17 @@ enable = false
 # Muscle memory
 # "{" = ["goto_prev_paragraph", "collapse_selection"]
 # "}" = ["goto_next_paragraph", "collapse_selection"]
+
+C-y = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
 G = "goto_file_end"
 V = ["select_mode", "extend_to_line_bounds"]
-"C-b" = []                                   # Unbinds Ctrl-b in normal mode
+"C-b" = [] # Unbinds Ctrl-b in normal mode
 
 [keys.insert]
 "C-y" = ["completion"]
