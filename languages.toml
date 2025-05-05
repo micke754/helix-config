@@ -35,6 +35,14 @@ args = ["server"]
 command = "pylyzer"
 args = ["--server"]
 
+[language-server.sqls]
+command = "sqls"
+args = ["--server"]
+
+[language-server.sqlfluff]
+command = "sqlfluff"
+args = ["lint", "--dialect", "databricks"]
+
 # Language Config
 [[language]]
 name = "c"
@@ -57,17 +65,15 @@ auto-format = true
 
 [[language]]
 name = "python"
-language-servers = ["basedpyright", "ruff"]
+language-servers = ["basedpyright", "ruff", "harper-ls"]
 formatter = { command = "ruff", args = ["format", "--line-length", "88", "-"] }
 auto-format = false
 
 [[language]]
 name = "sql"
-formatter = { command = "sqlfmt", args = [
-  "--stdin-filename",
-  "$FILENAME",
-  "-",
-] }
+language-servers = ["sqlfluff"]
+formatter = { command = "sqlfmt", args = ["--line-length", "88", "-"] }
+auto-format = true
 
 [[language]]
 name = "yaml"
@@ -77,7 +83,7 @@ language-servers = ["yaml-language-server", "ansible-language-server"]
 
 [[language]]
 name = "markdown"
-language-servers = ["markdown-oxide", "vale-ls"]
+language-servers = ["markdown-oxide", "vale-ls", "harper-ls"]
 
 [[language]]
 name = "lua"
@@ -99,13 +105,6 @@ auto-format = true
 name = "css"
 formatter = { command = 'prettierd', args = [".css"] }
 auto-format = true
-
-# [[language]]
-# name = "scss"
-# formatter = { command = 'prettierd', args = [".scss"] }
-# auto-format = true
-# language-servers = ["gpt", "vale-ls", ]
-# file-types = ["txt", "md"]
 
 [[language]]
 name = "nix"

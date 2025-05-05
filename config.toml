@@ -1,5 +1,5 @@
-theme = "base16_transparent"
-# theme = "carbonfox"
+# theme = "base16_transparent"
+theme = "peachpuff"
 [editor]
 scrolloff = 15
 auto-format = true
@@ -42,6 +42,8 @@ V = ["select_mode", "extend_to_line_bounds"]
 "C-b" = []                                   # Unbinds Ctrl-b in normal mode
 "C-n" = ["move_line_down"]
 "C-p" = ["move_line_up"]
+# m = "select_mode"
+"%" = "select_all"
 
 [keys.insert]
 "C-y" = ["completion"]
